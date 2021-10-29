@@ -5,19 +5,20 @@ void renderButton(boolean buttonOn) {
   color buttonOnColor = color(182, 179, 203);
 
   fill(black);
-  rect(100, 500, 100, 100);
+  rect(400, 500, 100, 100);
 
   if (buttonOn) {
     fill(buttonOnColor);
+    state = 1;
   } else {
     fill(buttonOffColor);
   }
-  ellipse(150, 550, 36, 36);
+  ellipse(450, 550, 36, 36);
 }
 
 boolean buttonPressed(){
   // Returns true if the button is pressed, false otherwise
-  if (mousePressed && sqrt(sq(mouseX-150)+sq(mouseY-550)) < 18){
+  if (mousePressed && sqrt(sq(mouseX-450)+sq(mouseY-550)) < 18){
     return true;
   } else{
     return false;

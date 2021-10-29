@@ -1,9 +1,10 @@
+
 int start;
 
 int state;
 
 void setup() {
-  size(300, 700);
+  size(600, 700);
   background(180);
   start = millis();
   state = 0;
@@ -12,30 +13,30 @@ void setup() {
 void draw() {
 
   if (state == 0) {
-    renderTrafficLight(true, false, false);
-    if (millis() - start > 2000) {
-      state = 1;
-      start = millis();
-    }
+    renderTrafficLight(false, false, true);
+    renderWalkSignal(false);
   }
-  if (state == 1) {
+  if (state == 3) {
     renderTrafficLight(true, true, false);
+    renderWalkSignal(false);
     if (millis() - start > 2000) {
-      state = 2;
+      state = 0;
       start = millis();
     }
   }
   if (state == 2) {
-    renderTrafficLight(false, false, true);
+    renderTrafficLight(true, false, false);
+    renderWalkSignal(true);
     if (millis() - start > 2000) {
       state = 3;
       start = millis();
     }
   }
-  if (state == 3) {
+  if (state == 1) {
     renderTrafficLight(false, true, false);
+    renderWalkSignal(false);
     if (millis() - start > 2000) {
-      state = 0;
+      state = 2;
       start = millis();
     }
   }
